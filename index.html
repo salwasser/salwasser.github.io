@@ -48,6 +48,7 @@
         var playtrix = []
         var selectedSecretWord = "";
         var globalWordMap = new Map();
+        var gameOverFlag = false;
 
         function cellFromTile(tile, playtrixRow) {
             var tileLetter = '&nbsp;';
@@ -78,6 +79,9 @@
         }
 
         function drawStatus() {
+            if (gameOverFlag) {
+                return
+            }
             let sNode = document.getElementById("status")
             while (sNode.firstChild) {
                 sNode.removeChild(sNode.lastChild);
@@ -197,7 +201,9 @@
         }
 
         function gameOver() {
+            document.getElementById("status").innerHTML = "Game Over<br>"+ document.getElementById("status").innerHTML;
             console.log("Game Over!")
+            gameOverFlag = true;
         }
 
         function enterPressed() {
