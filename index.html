@@ -48,7 +48,8 @@
         var playtrix = []
         var selectedSecretWord = "";
         var globalWordMap = new Map();
-        var gameOverFlag = false;
+
+        var stop = false;
 
         function cellFromTile(tile, playtrixRow) {
             var tileLetter = '&nbsp;';
@@ -78,10 +79,7 @@
             pNode.appendChild(playtrixTable);
         }
 
-        function drawStatus() {
-            if (gameOverFlag) {
-                return
-            }
+        function drawStatus(gameOverFlag) {
             let sNode = document.getElementById("status")
             while (sNode.firstChild) {
                 sNode.removeChild(sNode.lastChild);
@@ -93,7 +91,11 @@
             for (const [word, nothing] of globalWordMap.entries()) {
                 wordCount += 1;
             }
-            statusBar.innerHTML = "Score " + playtrix.length + "<br>" + "Possible Words Remaining " + wordCount;
+            var gameOverText = ""
+            if (gameOverFlag) {
+                gameOverText = "Game Over<br>Reload To Play Again<br>"
+            }
+            statusBar.innerHTML = gameOverText + "Score " + playtrix.length + "<br>" + "Possible Words Remaining " + wordCount;
             sNode.appendChild(statusBar)
         }
 
@@ -201,9 +203,14 @@
         }
 
         function gameOver() {
-            document.getElementById("status").innerHTML = "Game Over<br>"+ document.getElementById("status").innerHTML;
             console.log("Game Over!")
-            gameOverFlag = true;
+            for (let i = 0; i < WordSize; i++) {
+                playtrix[wordCursor][i].tileState = TileState.GAMEOVER;
+            }
+            drawPlaytrix();
+            drawStatus(true);
+            drawKeyboard();
+            stop = true;
         }
 
         function enterPressed() {
@@ -306,10 +313,16 @@
 
 
         function updateAndDraw(keyPress) {
+            if (stop) {
+                return
+            }
             if (keyPress != null) {
                 if (keyPress === '@') {
                     if  (letterCursor == 5) {
                         enterPressed();
+                        if (stop) {
+                            return
+                        }
                     }
                 } else if (keyPress === '<') {
                     if (letterCursor > 0) {
@@ -324,7 +337,7 @@
             }
 
             drawPlaytrix();
-            drawStatus();
+            drawStatus(false);
             drawKeyboard();
         }
 
@@ -392,6 +405,6 @@
 <div style="text-align: center; font-family: arial, sans-serif; font-size: x-large; width: 100%;"><h2>A N T I W O R D L E</h2></div>
 <div style="text-align: center;"><p id="playtrix"></p></div>
 <div style="text-align: right;"><p id="status"></p></div>
-<div style="text-align: center;"><p id="keyboard">ZZZ</p></div>
+<div style="text-align: center;"><p id="keyboard"></p></div>
 </body>
 </html>
