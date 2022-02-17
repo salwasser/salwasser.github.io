@@ -59,6 +59,7 @@
             playtrixCell = document.createElement('td');
             playtrixCell.style.backgroundColor = "rgb(" + tile.tileState.color + ")";
             playtrixCell.style.color = "white";
+            playtrixCell.style.fontSize = "xxx-large";
             playtrixCell.innerHTML = tileLetter;
             playtrixRow.appendChild(playtrixCell);
         }
@@ -86,7 +87,7 @@
             }
             let statusBar = document.createElement('p');
             statusBar.style.fontFamily = "arial, sans-serif";
-            statusBar.style.fontSize = "x-large";
+            statusBar.style.fontSize = "xx-large";
             var wordCount = 0;
             for (const [word, nothing] of globalWordMap.entries()) {
                 wordCount += 1;
@@ -120,7 +121,7 @@
                         keyboardKeyButton.innerText = keyboardLetter;
                         keyboardKeyButton.style.backgroundColor = "rgb(" + inputKeyState.get(keyboardLetter).color + ")";
                         keyboardKeyButton.style.fontFamily = "arial, sans-serif";
-                        keyboardKeyButton.style.fontSize = "x-large";
+                        keyboardKeyButton.style.fontSize = "xxx-large";
                         keyboardKeyButton.style.color = "white";
                         keyboardKey.appendChild(keyboardKeyButton);
                         keyboardRow.appendChild(keyboardKey);
@@ -139,7 +140,7 @@
             backspaceButton.innerText = "Back";
             backspaceButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             backspaceButton.style.fontFamily = "arial, sans-serif";
-            backspaceButton.style.fontSize = "x-large";
+            backspaceButton.style.fontSize = "xxx-large";
             backspaceButton.style.color = "white";
             backspaceCell.appendChild(backspaceButton);
             backspaceEnterRow.appendChild(backspaceCell);
@@ -153,7 +154,7 @@
             enterButton.innerText = "Enter";
             enterButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             enterButton.style.fontFamily = "arial, sans-serif";
-            enterButton.style.fontSize = "x-large";
+            enterButton.style.fontSize = "xxx-large";
             enterButton.style.color = "white";
             enterCell.appendChild(enterButton);
             backspaceEnterRow.appendChild(enterCell);
@@ -397,12 +398,12 @@
         loadWordListAndStartGame();
     </script>
     <style>
-        table {font-family: arial, sans-serif; font-size: xxx-large; width: 100%;}
+        table {font-family: arial, sans-serif; font-size: xxx-large; width: 100%; height: 100%;}
         td {border: 5px solid; border-color: white}
     </style>
 </head>
 <body>
-<div style="text-align: center; font-family: arial, sans-serif; font-size: x-large; width: 100%;"><h2>A N T I W O R D L E</h2></div>
+<div style="text-align: center; font-family: arial, sans-serif; font-size: x-large; width: 100%;"><h1>A N T I W O R D L E</h1></div>
 <div style="text-align: center;"><p id="playtrix"></p></div>
 <div style="text-align: right;"><p id="status"></p></div>
 <div style="text-align: center;"><p id="keyboard"></p></div>
