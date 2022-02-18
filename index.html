@@ -66,6 +66,7 @@
 
         function appendRowFromWord(guessedWord, playtrixTable) {
             playtrixRow = document.createElement('tr')
+            playtrixRow.style.height = "75px";
             guessedWord.forEach(tile => cellFromTile(tile, playtrixRow))
             playtrixTable.appendChild(playtrixRow)
         }
@@ -121,10 +122,11 @@
                         keyboardKeyButton.innerText = keyboardLetter;
                         keyboardKeyButton.style.backgroundColor = "rgb(" + inputKeyState.get(keyboardLetter).color + ")";
                         keyboardKeyButton.style.fontFamily = "arial, sans-serif";
-                        keyboardKeyButton.style.fontSize = "90px";
-                        keyboardKeyButton.style.height = "100px";
-                        keyboardKeyButton.style.width = "100px";
+                        keyboardKeyButton.style.fontSize = "70px";
+                        keyboardKeyButton.style.height = "75px";
+                        keyboardKeyButton.style.width = "75px";
                         keyboardKeyButton.style.color = "white";
+                        keyboardKeyButton.style.textAlign = "center";
                         keyboardKey.appendChild(keyboardKeyButton);
                         keyboardRow.appendChild(keyboardKey);
                     }
@@ -142,9 +144,9 @@
             backspaceButton.innerText = "Back";
             backspaceButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             backspaceButton.style.fontFamily = "arial, sans-serif";
-            backspaceButton.style.fontSize = "90px";
-            backspaceButton.style.height = "100px";
-            backspaceButton.style.width = "250px";
+            backspaceButton.style.fontSize = "70px";
+            backspaceButton.style.height = "75px";
+            backspaceButton.style.width = "200px";
             backspaceButton.style.color = "white";
             backspaceCell.appendChild(backspaceButton);
             backspaceEnterRow.appendChild(backspaceCell);
@@ -158,9 +160,9 @@
             enterButton.innerText = "Enter";
             enterButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             enterButton.style.fontFamily = "arial, sans-serif";
-            enterButton.style.fontSize = "90px";
-            enterButton.style.height = "100px";
-            enterButton.style.width = "250px";
+            enterButton.style.fontSize = "70px";
+            enterButton.style.height = "75px";
+            enterButton.style.width = "200px";
             enterButton.style.color = "white";
             enterCell.appendChild(enterButton);
             backspaceEnterRow.appendChild(enterCell);
