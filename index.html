@@ -121,7 +121,9 @@
                         keyboardKeyButton.innerText = keyboardLetter;
                         keyboardKeyButton.style.backgroundColor = "rgb(" + inputKeyState.get(keyboardLetter).color + ")";
                         keyboardKeyButton.style.fontFamily = "arial, sans-serif";
-                        keyboardKeyButton.style.fontSize = "xxx-large";
+                        keyboardKeyButton.style.fontSize = "90px";
+                        keyboardKeyButton.style.height = "100px";
+                        keyboardKeyButton.style.width = "100px";
                         keyboardKeyButton.style.color = "white";
                         keyboardKey.appendChild(keyboardKeyButton);
                         keyboardRow.appendChild(keyboardKey);
@@ -140,7 +142,9 @@
             backspaceButton.innerText = "Back";
             backspaceButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             backspaceButton.style.fontFamily = "arial, sans-serif";
-            backspaceButton.style.fontSize = "xxx-large";
+            backspaceButton.style.fontSize = "90px";
+            backspaceButton.style.height = "100px";
+            backspaceButton.style.width = "250px";
             backspaceButton.style.color = "white";
             backspaceCell.appendChild(backspaceButton);
             backspaceEnterRow.appendChild(backspaceCell);
@@ -154,9 +158,9 @@
             enterButton.innerText = "Enter";
             enterButton.style.backgroundColor = "rgb(" + TileState.UNKNOWN.color + ")";
             enterButton.style.fontFamily = "arial, sans-serif";
-            enterButton.style.fontSize = "xxx-large";
+            enterButton.style.fontSize = "90px";
             enterButton.style.height = "100px";
-            enterButton.style.width = "100px";
+            enterButton.style.width = "250px";
             enterButton.style.color = "white";
             enterCell.appendChild(enterButton);
             backspaceEnterRow.appendChild(enterCell);
